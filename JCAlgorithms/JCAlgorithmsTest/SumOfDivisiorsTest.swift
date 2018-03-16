@@ -9,17 +9,41 @@
 import XCTest
 
 class SumOfDivisiorsTest: XCTestCase {
-
-    func testSumOfDivisiors() {
-        XCTAssertEqual(12.sumOfDivisiors, 28)
-        XCTAssertEqual(26.sumOfDivisiors, 42)
-        XCTAssertEqual(55.sumOfDivisiors, 72)
+    
+    private var rand : Int!
+    
+    override func setUp() {
+        super.setUp()
+        self.rand = Int(arc4random_uniform(UInt32(50000)))
     }
 
-    func testPerformanceSumOfDivisios() {
+    func testFastSumOfDivisiors() {
+        XCTAssertEqual(12.sumOfDivisiorsFast, 28)
+        XCTAssertEqual(26.sumOfDivisiorsFast, 42)
+        XCTAssertEqual(55.sumOfDivisiorsFast, 72)
+    }
+    
+    func testSlowSumOfDivisiors() {
+        XCTAssertEqual(12.sumOfDivisiorsSlow, 28)
+        XCTAssertEqual(26.sumOfDivisiorsSlow, 42)
+        XCTAssertEqual(55.sumOfDivisiorsSlow, 72)
+    }
+
+    func testPerformanceFastSumOfDivisios() {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            for _ in 0 ..< 1000 {
+                _ = self.rand.sumOfDivisiorsFast
+            }
+        }
+    }
+    
+    func testPerformanceSlowSumOfDivisios() {
+        // This is an example of a performance test case.
+        self.measure {
+            for _ in 0 ..< 1000 {
+                _ = self.rand.sumOfDivisiorsSlow
+            }
         }
     }
 

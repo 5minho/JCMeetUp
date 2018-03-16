@@ -9,19 +9,43 @@
 import XCTest
 
 class GCDLCMTest: XCTestCase {
-
-    func testGCDLCM() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssertEqual( [6, 9].gcdlcm, [3, 18])
-        XCTAssertEqual( [23, 11].gcdlcm, [1, 23 * 11])
-        XCTAssertEqual( [24, 28].gcdlcm, [4, 168])
+    
+    private var twoNumbers = [Int]()
+    
+    override func setUp() {
+        super.setUp()
+        self.twoNumbers = [Int]()
+        self.twoNumbers.append(Int(arc4random_uniform(UInt32(10000))))
+        self.twoNumbers.append(Int(arc4random_uniform(UInt32(10000))))
     }
 
-    func testPerformanceGCDLCM() {
+    func testFastGCDLCM() {
+        XCTAssertEqual( [6, 9].gcdlcmFast, [3, 18])
+        XCTAssertEqual( [23, 11].gcdlcmFast, [1, 23 * 11])
+        XCTAssertEqual( [24, 28].gcdlcmFast, [4, 168])
+    }
+    
+    func testSlowGCDLCM() {
+        XCTAssertEqual( [6, 9].gcdlcmSlow, [3, 18])
+        XCTAssertEqual( [23, 11].gcdlcmSlow, [1, 23 * 11])
+        XCTAssertEqual( [24, 28].gcdlcmSlow, [4, 168])
+    }
+
+    func testPerformanceFastGCDLCM() {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            for _ in 0..<1000 {
+                _ = twoNumbers.gcdlcmFast
+            }
+        }
+    }
+    
+    func testPerformanceSlowGCDLCM() {
+        // This is an example of a performance test case.
+        self.measure {
+            for _ in 0..<1000 {
+                _ = twoNumbers.gcdlcmSlow
+            }
         }
     }
 
