@@ -45,11 +45,3 @@ func sumMatric(_ A : [[Int]], _ B : [[Int]]) -> [[Int]] {
     }
     return answer
 }
-
-
-let A = [[1, 2, 3, 4, 5, 6, 6, 7], [1, 4, 3, 4, 5, 2, 6, 7]]
-let B = [[1, 2, 3, 4, 5, 6, 6, 7], [1, 4, 3, 4, 5, 2, 6, 7]]
-print([2, 7].gcdlcm)
-print(sumMatric(A, B))
-print(13.sumOfDivisiors)
-
