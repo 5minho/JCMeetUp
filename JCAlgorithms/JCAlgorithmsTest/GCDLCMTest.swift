@@ -10,13 +10,11 @@ import XCTest
 
 class GCDLCMTest: XCTestCase {
     
-    private var twoNumbers = [Int]()
-    
-    override func setUp() {
-        super.setUp()
-        self.twoNumbers = [Int]()
-        self.twoNumbers.append(Int(arc4random_uniform(UInt32(10000))))
-        self.twoNumbers.append(Int(arc4random_uniform(UInt32(10000))))
+    private var twoNumbers : [Int] {
+        var twoNumbers = [Int]()
+        twoNumbers.append(Int(arc4random_uniform(UInt32(10000))) + 1)
+        twoNumbers.append(Int(arc4random_uniform(UInt32(10000))) + 1)
+        return twoNumbers
     }
 
     func testFastGCDLCM() {

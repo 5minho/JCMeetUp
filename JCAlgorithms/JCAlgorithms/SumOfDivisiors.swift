@@ -11,7 +11,7 @@ import Foundation
 extension Int {
     
     var divisiors : [Int] {
-        return (1...Int(self)).filter {self % $0 == 0}
+        return (1...self).filter {self % $0 == 0}
     }
     
     var sumOfDivisiorsFast : Int {

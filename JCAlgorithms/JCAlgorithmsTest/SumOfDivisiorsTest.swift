@@ -10,11 +10,8 @@ import XCTest
 
 class SumOfDivisiorsTest: XCTestCase {
     
-    private var rand : Int!
-    
-    override func setUp() {
-        super.setUp()
-        self.rand = Int(arc4random_uniform(UInt32(50000)))
+    private var rand : Int {
+        return Int(arc4random_uniform(UInt32(50000))) + 1
     }
 
     func testFastSumOfDivisiors() {
