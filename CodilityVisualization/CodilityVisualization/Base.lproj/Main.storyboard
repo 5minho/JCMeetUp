@@ -32,13 +32,13 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS7-mE-btC">
-                                        <rect key="frame" x="378.5" y="110" width="78" height="45"/>
+                                        <rect key="frame" x="362.5" y="110" width="110" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="SX0-BX-nYa"/>
                                         </constraints>
-                                        <state key="normal" title="2진수로 변환"/>
+                                        <state key="normal" title="BinaryGap구하기"/>
                                         <connections>
-                                            <action selector="touchUpConvertBinaryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X7P-dH-ITQ"/>
+                                            <action selector="touchUpBinaryGapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2bD-xf-S0n"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current BinaryGap Count : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2q-a5-nk0">
@@ -131,13 +131,6 @@
                                 <rect key="frame" x="402" y="206" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mE3-fM-K7Z">
-                                <rect key="frame" x="376.5" y="204" width="82" height="30"/>
-                                <state key="normal" title="알고리즘 실행"/>
-                                <connections>
-                                    <action selector="touchUpExcuteAlgorithmButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L5t-h7-qh1"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -163,8 +156,6 @@
                             <constraint firstItem="N2t-76-6NR" firstAttribute="leading" secondItem="mQL-8d-er1" secondAttribute="leading" id="oCJ-PD-1OG"/>
                             <constraint firstItem="mQL-8d-er1" firstAttribute="trailing" secondItem="mvO-bw-Wnt" secondAttribute="trailing" id="pKI-wi-6Eq"/>
                             <constraint firstItem="mvO-bw-Wnt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="y0Y-uj-ZTh"/>
-                            <constraint firstItem="mE3-fM-K7Z" firstAttribute="top" secondItem="mS7-mE-btC" secondAttribute="bottom" constant="9" id="zEY-bE-jzR"/>
-                            <constraint firstItem="mS7-mE-btC" firstAttribute="centerX" secondItem="mE3-fM-K7Z" secondAttribute="centerX" id="zxL-6N-WQc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mQL-8d-er1"/>
                         <variation key="default">
