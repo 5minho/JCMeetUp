@@ -10,16 +10,18 @@ import XCTest
 
 class SumOfDivisiorsTest: XCTestCase {
     
-    private var rand : Int {
-        return Int(arc4random_uniform(UInt32(50000))) + 1
-    }
+    static var rand : Int = Int(arc4random_uniform(UInt32(50000))) + 1
+    
+//    override func setUp() {
+//        self.rand =
+//    }
 
     func testFastSumOfDivisiors() {
         XCTAssertEqual(12.sumOfDivisiorsFast, 28)
         XCTAssertEqual(26.sumOfDivisiorsFast, 42)
         XCTAssertEqual(55.sumOfDivisiorsFast, 72)
     }
-    
+
     func testSlowSumOfDivisiors() {
         XCTAssertEqual(12.sumOfDivisiorsSlow, 28)
         XCTAssertEqual(26.sumOfDivisiorsSlow, 42)
@@ -28,18 +30,22 @@ class SumOfDivisiorsTest: XCTestCase {
 
     func testPerformanceFastSumOfDivisios() {
         // This is an example of a performance test case.
+        print(#function)
+        print(SumOfDivisiorsTest.rand)
         self.measure {
             for _ in 0 ..< 1000 {
-                _ = self.rand.sumOfDivisiorsFast
+                _ = SumOfDivisiorsTest.rand.sumOfDivisiorsFast
             }
         }
     }
     
     func testPerformanceSlowSumOfDivisios() {
         // This is an example of a performance test case.
+        print(#function)
+        print(SumOfDivisiorsTest.rand)
         self.measure {
             for _ in 0 ..< 1000 {
-                _ = self.rand.sumOfDivisiorsSlow
+                _ = SumOfDivisiorsTest.rand.sumOfDivisiorsSlow
             }
         }
     }
