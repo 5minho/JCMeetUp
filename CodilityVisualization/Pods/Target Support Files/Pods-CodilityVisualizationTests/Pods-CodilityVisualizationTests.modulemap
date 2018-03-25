@@ -1,0 +1,6 @@
+framework module Pods_CodilityVisualizationTests {
+  umbrella header "Pods-CodilityVisualizationTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

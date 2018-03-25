@@ -1,0 +1,6 @@
+framework module Pods_CodilityVisualization {
+  umbrella header "Pods-CodilityVisualization-umbrella.h"
+
+  export *
+  module * { export * }
+}
