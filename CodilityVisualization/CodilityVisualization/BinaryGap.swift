@@ -15,15 +15,15 @@ extension Int {
 
 struct BinaryGap {
     
-    struct AnimationInfo {
+    struct Context {
         let num : Int
         let count : Int
         let answer : Int
     }
     
-    static public func solution(_ N : Int) -> [Int : [AnimationInfo]] {
-        var infos : [Int : [AnimationInfo]] = [
-            N : [AnimationInfo]()
+    static public func solution(_ N : Int) -> [Int : [Context]] {
+        var contextBuffer : [Int : [Context]] = [
+            N : [Context]()
         ]
         
         var count = 0
@@ -33,12 +33,12 @@ struct BinaryGap {
         // num의 LSB(least significant bit)가 1이 될때 까지 비트를 오른쪽으로 밀어준다.
         while num.lsb != 1 {
             num >>= 1
-            infos[N]?.append(AnimationInfo(num : num, count: count, answer: answer))
+            contextBuffer[N]?.append(Context(num : num, count: count, answer: answer))
         }
 
         while num != 0 {
             num >>= 1
-            infos[N]?.append(AnimationInfo(num : num, count: count, answer: answer))
+            contextBuffer[N]?.append(Context(num : num, count: count, answer: answer))
             
             // LSB가 0 이면 count를 증가시킨다
             if num.lsb == 0 {
@@ -50,6 +50,6 @@ struct BinaryGap {
             count = 0
         }
         
-        return infos
+        return contextBuffer
     }
 }

@@ -19,10 +19,12 @@ class BinaryGapViewController: UIViewController {
     private var binaryNumber : Int =  0 {
         didSet {
             self.binaryNumberString = String(binaryNumber, radix : 2)
-            if self.binaryNumberString?.count ?? 0 == 1 && binaryNumber == 0 {
-                self.binaryNumberString = ""
-            }
+            if shouldStopRemovingCell { self.binaryNumberString = "" }
         }
+    }
+    
+    private var shouldStopRemovingCell : Bool {
+        return (self.binaryNumberString?.count ?? 0) == 1 && binaryNumber == 0
     }
     
     private var count : Int = 0 {
@@ -39,35 +41,30 @@ class BinaryGapViewController: UIViewController {
     
     private var binaryNumberString : String?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    @IBAction private func touchUpConvertBinaryButton(_ sender : UIButton) {
+    @IBAction private func touchUpBinaryGapButton(_ sender : UIButton) {
         guard let inputText = self.inputTextField.text else {return}
+        self.inputTextField.resignFirstResponder()
+        
         self.binaryNumber = Int(inputText) ?? 0
         self.binaryCollectionView.reloadData()
-        self.inputTextField.resignFirstResponder()
+        
+        let contextbuffer = BinaryGap.solution(self.binaryNumber)
+        self.collectionViewAnimation(with: contextbuffer[self.binaryNumber]!)
     }
     
-    @IBAction private func touchUpExcuteAlgorithmButton(_ sender : UIButton) {
-        let infos = BinaryGap.solution(self.binaryNumber)
-        self.collectionViewAnimation(with: infos[self.binaryNumber]!)
-    }
-    
-    func collectionViewAnimation(with infoList : [BinaryGap.AnimationInfo]) {
-        guard let info = infoList.first else {return}
+    func collectionViewAnimation(with contextbuffer : [BinaryGap.Context]) {
+        guard let context = contextbuffer.first else {return}
         guard let binaryNumberString = self.binaryNumberString else {return}
         guard binaryNumberString.count >= 1 else {return}
         
-        self.binaryCollectionView.performBatchUpdates({
+        self.binaryCollectionView.performBahUpdates({
             self.binaryCollectionView.deleteItems(at: [IndexPath(item: binaryNumberString.count - 1, section : 0)])
-            self.binaryNumber = info.num
-            self.count = info.count
-            self.answer = info.answer
+            self.binaryNumber = context.num
+            self.count = context.count
+            self.answer = context.answer
         }) { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
-                self.collectionViewAnimation(with: [BinaryGap.AnimationInfo](infoList.dropFirst()))
+                self.collectionViewAnimation(with: [BinaryGap.Context](contextbuffer.dropFirst()))
             })
         }
     }
@@ -95,7 +92,6 @@ extension BinaryGapViewController : UICollectionViewDelegate, UICollectionViewDa
         
         let start = binaryNumberString.startIndex
         let idx = binaryNumberString.index(start, offsetBy: indexPath.item)
-        
         let binaryChar = binaryNumberString[idx]
         binaryCell.binary = Int(String(binaryChar))
         return binaryCell
