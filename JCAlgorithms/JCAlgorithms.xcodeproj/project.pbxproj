@@ -22,6 +22,9 @@
 		5AD37AB4205C28A20062F6B0 /* SumOfDivisiors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD37AAE205C27540062F6B0 /* SumOfDivisiors.swift */; };
 		5AD37AB5205C28B60062F6B0 /* GCDLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD37AB0205C27790062F6B0 /* GCDLCM.swift */; };
 		5AD37AB6205C28B80062F6B0 /* SumOfMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD37AB2205C27BF0062F6B0 /* SumOfMatrix.swift */; };
+		5AE2D261206D26BD0006C1D5 /* ArrayAndString1_5Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2D260206D26BD0006C1D5 /* ArrayAndString1_5Test.swift */; };
+		5AF0451C206BC997008AFCA1 /* ArrayAndString1_2Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0451B206BC997008AFCA1 /* ArrayAndString1_2Test.swift */; };
+		5AF04523206BE3ED008AFCA1 /* ArrayAndString1_3Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF04522206BE3ED008AFCA1 /* ArrayAndString1_3Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +54,9 @@
 		5AD37AAE205C27540062F6B0 /* SumOfDivisiors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumOfDivisiors.swift; sourceTree = "<group>"; };
 		5AD37AB0205C27790062F6B0 /* GCDLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDLCM.swift; sourceTree = "<group>"; };
 		5AD37AB2205C27BF0062F6B0 /* SumOfMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumOfMatrix.swift; sourceTree = "<group>"; };
+		5AE2D260206D26BD0006C1D5 /* ArrayAndString1_5Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayAndString1_5Test.swift; sourceTree = "<group>"; };
+		5AF0451B206BC997008AFCA1 /* ArrayAndString1_2Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayAndString1_2Test.swift; sourceTree = "<group>"; };
+		5AF04522206BE3ED008AFCA1 /* ArrayAndString1_3Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayAndString1_3Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,9 @@
 				5A2AC0182057412D00B15C44 /* SumOfMatrixTest.swift */,
 				5AD37AAA205C1B830062F6B0 /* O(N)vsO(2N)Test.swift */,
 				5A23B0F6205FE9DA0026D360 /* BinaryGapTest.swift */,
+				5AF0451B206BC997008AFCA1 /* ArrayAndString1_2Test.swift */,
+				5AF04522206BE3ED008AFCA1 /* ArrayAndString1_3Test.swift */,
+				5AE2D260206D26BD0006C1D5 /* ArrayAndString1_5Test.swift */,
 				5A2AC01A2057412D00B15C44 /* Info.plist */,
 			);
 			path = JCAlgorithmsTest;
@@ -218,11 +227,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD37AAD205C1BC80062F6B0 /* Extension+XCTest.swift in Sources */,
+				5AF04523206BE3ED008AFCA1 /* ArrayAndString1_3Test.swift in Sources */,
 				5A23B0F7205FE9DA0026D360 /* BinaryGapTest.swift in Sources */,
 				5A23B0F5205FE8640026D360 /* BinaryGap.swift in Sources */,
+				5AE2D261206D26BD0006C1D5 /* ArrayAndString1_5Test.swift in Sources */,
 				5AD37AA9205C1ADB0062F6B0 /* SumOfDivisiorsTest.swift in Sources */,
 				5A2AC0192057412D00B15C44 /* SumOfMatrixTest.swift in Sources */,
 				5AD37AB6205C28B80062F6B0 /* SumOfMatrix.swift in Sources */,
+				5AF0451C206BC997008AFCA1 /* ArrayAndString1_2Test.swift in Sources */,
 				5AD37AB4205C28A20062F6B0 /* SumOfDivisiors.swift in Sources */,
 				5AD37AAB205C1B830062F6B0 /* O(N)vsO(2N)Test.swift in Sources */,
 				5AD37AB5205C28B60062F6B0 /* GCDLCM.swift in Sources */,
