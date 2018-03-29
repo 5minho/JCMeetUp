@@ -12,8 +12,8 @@ import XCTest
 class ArrayAndString1_5Test: XCTestCase {
     
     // 처음에 문제를 읽고 두 문자열의 최장공통문자열이 두 문자열중 긴 문자열과 1 차이가 나면
-    // 한번의 수정으로 다른 하나의 문자열을 만들 수 있다고 생각했음
-
+    // 한번의 수정으로 다른 하나의 문자열을 만들 수 있다고 생각했음 시간복잡도 O(N^2)
+    // 시간복잡도가 O(NlogN)인 알고리즘도 존재함
     func lcsLength(str1 : inout String, str2 : inout String) -> Int {
         var table = [[Int]](repeating : [Int](repeating: 0, count : str2.count + 1),
                             count : str1.count + 1)
@@ -30,6 +30,7 @@ class ArrayAndString1_5Test: XCTestCase {
     }
     
     func isEqualOnlyOneEdit(str1 : inout String, str2 : inout String) -> Bool {
+        guard abs(Int32(str1.count - str2.count)) < 2 else {return false}
         return max(str1.count, str2.count) == self.lcsLength(str1: &str1, str2: &str2) + 1
     }
 
