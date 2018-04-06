@@ -14,6 +14,7 @@
 		5A2AC0192057412D00B15C44 /* SumOfMatrixTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2AC0182057412D00B15C44 /* SumOfMatrixTest.swift */; };
 		5A4458712073BCBB0069159E /* 1_4Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4458702073BCBB0069159E /* 1_4Test.swift */; };
 		5ACC4834206EF2D20037A214 /* 1_1Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACC4833206EF2D20037A214 /* 1_1Test.swift */; };
+		5ACDF4BD207790A5001D6711 /* 1_7Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF4BC207790A5001D6711 /* 1_7Test.swift */; };
 		5AD37AA7205C1A2E0062F6B0 /* GCDLCMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD37AA6205C1A2E0062F6B0 /* GCDLCMTest.swift */; };
 		5AD37AA9205C1ADB0062F6B0 /* SumOfDivisiorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD37AA8205C1ADB0062F6B0 /* SumOfDivisiorsTest.swift */; };
 		5AD37AAB205C1B830062F6B0 /* O(N)vsO(2N)Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD37AAA205C1B830062F6B0 /* O(N)vsO(2N)Test.swift */; };
@@ -51,6 +52,7 @@
 		5A2AC01A2057412D00B15C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A4458702073BCBB0069159E /* 1_4Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1_4Test.swift; sourceTree = "<group>"; };
 		5ACC4833206EF2D20037A214 /* 1_1Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1_1Test.swift; sourceTree = "<group>"; };
+		5ACDF4BC207790A5001D6711 /* 1_7Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1_7Test.swift; sourceTree = "<group>"; };
 		5AD37AA6205C1A2E0062F6B0 /* GCDLCMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDLCMTest.swift; sourceTree = "<group>"; };
 		5AD37AA8205C1ADB0062F6B0 /* SumOfDivisiorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumOfDivisiorsTest.swift; sourceTree = "<group>"; };
 		5AD37AAA205C1B830062F6B0 /* O(N)vsO(2N)Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "O(N)vsO(2N)Test.swift"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				5A4458702073BCBB0069159E /* 1_4Test.swift */,
 				5AE2D260206D26BD0006C1D5 /* 1_5Test.swift */,
 				5AE2D262206D3CEE0006C1D5 /* 1_6Test.swift */,
+				5ACDF4BC207790A5001D6711 /* 1_7Test.swift */,
 			);
 			path = ArrayAndString;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				5AD37AAB205C1B830062F6B0 /* O(N)vsO(2N)Test.swift in Sources */,
 				5AD37AB5205C28B60062F6B0 /* GCDLCM.swift in Sources */,
 				5AD37AA7205C1A2E0062F6B0 /* GCDLCMTest.swift in Sources */,
+				5ACDF4BD207790A5001D6711 /* 1_7Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
