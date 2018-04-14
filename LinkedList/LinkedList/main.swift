@@ -62,6 +62,10 @@ struct LinkedList<T> {
         appand(newNode)
     }
     
+    public mutating func remove(at idx : UInt) -> Node<T>? {
+        return nil
+    }
+    
     //MARK: private method
     private func checkBoundary(idx : UInt) -> Bool {
         return idx < self.count
