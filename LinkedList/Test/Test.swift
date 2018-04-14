@@ -189,6 +189,8 @@ class Test: XCTestCase {
         XCTAssertTrue(threeNodeList.insert(item: 300, at: 3))
         XCTAssertEqual(threeNodeList.node(at: 3)?.item, 300)
         XCTAssertEqual(threeNodeList.count, 6)
+        
+        XCTAssertFalse(threeNodeList.insert(item: 100, at: 10))
     }
     
 }
