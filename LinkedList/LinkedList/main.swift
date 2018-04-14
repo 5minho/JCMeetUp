@@ -24,29 +24,52 @@ struct LinkedList<T> {
     var first : Node<T>?
     var last : Node<T>?
     var count : Int = 0
-    
     //MARK: computed properties
     var isEmpty : Bool {
-        return false
+        return (first == nil) && (last == nil)
     }
     
     //MARK: public methods
     public func node(at idx: UInt) -> Node<T>? {
-        return nil
+        guard let first = self.first else {return nil}
+        guard checkBoundary(idx : idx) else {return nil}
+        var currentNode = first
+        for _ in (0..<idx) {
+            guard let nextNode = currentNode.next else {
+                return nil
+            }
+            currentNode = nextNode
+        }
+        return currentNode
     }
     
-    public func appand(_ node : Node<T>) {
-        
+    public mutating func appand(_ newNode : Node<T>) {
+        clear(newNode)
+        guard self.isEmpty == false else {
+            self.first = newNode
+            self.last = newNode
+            self.count += 1
+            return
+        }
+        last?.next = newNode
+        newNode.prev = last
+        last = newNode
+        count += 1
     }
     
-    public func append(_ item : T) {
-        
+    public mutating func append(_ item : T) {
+        let newNode = Node(item: item)
+        appand(newNode)
     }
     
     //MARK: private method
     private func checkBoundary(idx : UInt) -> Bool {
-        return false
+        return idx < self.count
     }
-    
+
+    func clear(_ node : Node<T>) {
+        node.prev = nil
+        node.next = nil
+    }
 }
 
