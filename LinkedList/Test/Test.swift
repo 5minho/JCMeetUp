@@ -167,7 +167,46 @@ class Test: XCTestCase {
     }
     
     func test_특정_인덱스에_노드_삽입() {
-        XCTFail()
+        // 1 - 2 - 3 => 100 - 1 - 2 - 3
+        let originList = threeNodeList
+        XCTAssertTrue(threeNodeList.insert(item: 100, at: 0))
+        XCTAssertEqual(threeNodeList.node(at: 0)?.item, 100)
+        XCTAssertTrue(threeNodeList.node(at: 0) === threeNodeList.first)
+        XCTAssertTrue(threeNodeList.node(at: 1) === originList?.node(at: 0))
+        XCTAssertTrue(threeNodeList.node(at: 2) === originList?.node(at: 1))
+        XCTAssertTrue(threeNodeList.node(at: 3) === originList?.node(at: 2))
+        XCTAssertTrue(threeNodeList.node(at: 3) === threeNodeList.last)
+        XCTAssertEqual(threeNodeList.count, 4)
+        
+        // 100 - 1 - 2 - 3 => 100 - 1 - 2 - 3 - 200
+        XCTAssertTrue(threeNodeList.insert(item: 200, at: 4))
+        XCTAssertEqual(threeNodeList.node(at: 4)?.item, 200)
+        XCTAssertTrue(threeNodeList.node(at: 0) === threeNodeList.first)
+        XCTAssertTrue(threeNodeList.node(at: 4) === threeNodeList.last)
+        XCTAssertEqual(threeNodeList.count, 5)
+        
+        // 100 - 1 - 2 - 3 - 200 => 100 - 1 - 2 - 300 - 3 - 200
+        XCTAssertTrue(threeNodeList.insert(item: 300, at: 3))
+        XCTAssertEqual(threeNodeList.node(at: 3)?.item, 300)
+        XCTAssertEqual(threeNodeList.count, 6)
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

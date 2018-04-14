@@ -15,8 +15,10 @@ struct LinkedList<T> {
         var next : Node?
         var item : T
         
-        init(item : T) {
+        init(item : T, prev : Node? = nil, next : Node? = nil) {
             self.item = item
+            self.prev = prev
+            self.next = next
         }
     }
     
@@ -44,17 +46,18 @@ struct LinkedList<T> {
     }
     
     public mutating func appand(_ newNode : Node<T>) {
+        defer {
+            self.count += 1
+        }
         clear(newNode)
         guard self.isEmpty == false else {
             self.first = newNode
             self.last = newNode
-            self.count += 1
             return
         }
         last?.next = newNode
         newNode.prev = last
         last = newNode
-        count += 1
     }
     
     public mutating func append(_ item : T) {
@@ -69,7 +72,11 @@ struct LinkedList<T> {
         return self.remove(removedNode)
     }
     
-    public mutating func remove(_ node : Node<T>) -> Node<T>? {
+    public mutating func remove(_ node : Node<T>) -> Node<T> {
+        defer {
+            clear(node)
+            count -= 1
+        }
         if let removedNextNode = node.next {
             removedNextNode.prev = node.prev
         }
@@ -82,9 +89,31 @@ struct LinkedList<T> {
         else {
             self.first = node.next
         }
-        clear(node)
-        count -= 1
         return node
+    }
+    
+    @discardableResult public mutating func insert(item : T, at idx : UInt) -> Bool {
+        guard idx <= count else {return false}
+        defer {
+            count += 1
+        }
+        if idx == count {
+            let newNode = Node(item: item, prev: last, next: nil)
+            last?.next = newNode
+            last = newNode
+            return true
+        }
+        let node = self.node(at: idx)
+        if node === first {
+            let newNode = Node(item: item, prev: nil, next: node)
+            node?.prev = newNode
+            first = newNode
+            return true
+        }
+        let newNode = Node(item: item, prev: node?.prev, next: node)
+        node?.prev?.next = newNode
+        node?.prev = newNode
+        return true
     }
     
     //MARK: private method
