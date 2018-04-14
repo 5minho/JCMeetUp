@@ -63,7 +63,24 @@ struct LinkedList<T> {
     }
     
     public mutating func remove(at idx : UInt) -> Node<T>? {
-        return nil
+        guard let removedNode = self.node(at: idx) else {
+            return nil
+        }
+        if let removedNextNode = removedNode.next {
+            removedNextNode.prev = removedNode.prev
+        }
+        else {
+            self.last = removedNode.prev
+        }
+        if let removedPrevNode = removedNode.prev {
+            removedPrevNode.next = removedNode.next
+        }
+        else {
+            self.first = removedNode.next
+        }
+        clear(removedNode)
+        count -= 1
+        return removedNode
     }
     
     //MARK: private method
