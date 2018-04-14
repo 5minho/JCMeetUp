@@ -9,9 +9,9 @@
 import Foundation
 
 struct LinkedList<T> {
-    
+
     class Node<T> {
-        var prev : Node?
+        weak var prev : Node? // cycle 방지 weak 선언
         var next : Node?
         var item : T
         

@@ -14,9 +14,6 @@ class Test: XCTestCase {
     var oneNodeList : LinkedList<Int>!
     var twoNodeList : LinkedList<Int>!
     var threeNodeList : LinkedList<Int>!
-    var manyNodeList : LinkedList<Int>!
-    
-    let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 1, 5, 2, 3] // 15개
     
     override func setUp() {
         super.setUp()
@@ -37,15 +34,22 @@ class Test: XCTestCase {
         threeNodeList.append(1)
         threeNodeList.append(2)
         threeNodeList.append(3)
-        
-        manyNodeList = LinkedList<Int>()
-        numbers.forEach {
-            manyNodeList.append(LinkedList.Node(item: $0))
-        }
     }
     
     func test_첫번째_노드_가져오기() {
+        let firstOfEmptyList = emptylist.node(at: 0)
+        XCTAssertNil(firstOfEmptyList)
+        XCTAssertTrue(firstOfEmptyList === emptylist.first)
         
+        let firstOfOneNodeList = oneNodeList.node(at: 0)
+        XCTAssertEqual(firstOfOneNodeList?.item, 1)
+        XCTAssertTrue(firstOfOneNodeList === oneNodeList.first)
+        XCTAssertTrue(firstOfOneNodeList === oneNodeList.last)
+        
+        let firstOfTwoNodeList  = twoNodeList.node(at: 0)
+        XCTAssertEqual(firstOfTwoNodeList?.item, 1)
+        XCTAssertTrue(firstOfTwoNodeList === twoNodeList.node(at: 1)?.prev)
+        XCTAssertTrue(firstOfTwoNodeList === twoNodeList.last?.prev)
     }
     
     func test_마지막_노드_가져오기() {
