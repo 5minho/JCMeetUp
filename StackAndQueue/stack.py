@@ -10,6 +10,12 @@ class Stack:
     def pop(self):
         self.container.pop(self)
 
+    def peek(self):
+        self.container.peek(self)
+
+    def is_empty(self):
+        self.container.is_empty(self)
+
 
 class StackContainer:
 
@@ -24,3 +30,10 @@ class StackContainer:
     def pop(self, stack):
         last_idx = self.last_idx_table[stack]
         self.buffer.pop(last_idx)
+
+    def peek(self):
+        pass
+
+    def is_empty(self):
+        pass
+

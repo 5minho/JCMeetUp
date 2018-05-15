@@ -17,11 +17,7 @@ class TestThreeStackInStackContainer(unittest.TestCase):
                                 (self.s1, 4),
                                 (self.s2, 4),
                                 (self.s1, 5)]
-
-        for stack_and_item in test_stack_and_items:
-            stack = stack_and_item[0]
-            item = stack_and_item[1]
-            stack.push(item)
+        self.push_items(test_stack_and_items)
 
         for i, stack_and_item in enumerate(self.container.buffer):
             expected_stack = test_stack_and_items[i][0]
@@ -30,6 +26,15 @@ class TestThreeStackInStackContainer(unittest.TestCase):
             item = stack_and_item[1]
             self.assertEqual(expected_stack, stack)
             self.assertEqual(expected_item, item)
+
+    def test_three_stack_pop(self):
+        self.fail()
+
+    def push_items(self, test_stack_and_items):
+        for stack_and_item in test_stack_and_items:
+            stack = stack_and_item[0]
+            item = stack_and_item[1]
+            stack.push(item)
 
 
 if __name__ == '__main__':
