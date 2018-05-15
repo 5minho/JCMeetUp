@@ -15,33 +15,40 @@ class Stack:
         self.container.pop(self)
 
     def peek(self):
-        self.container.peek(self)
+        return self.container.peek(self)
 
     def is_empty(self):
-        self.container.is_empty(self)
+        return self.container.is_empty(self)
 
 
 class StackContainer:
 
     def __init__(self):
-        self.buffer = []
+        self.container = []
 
     def push(self, stack, item):
-        self.buffer.append((stack, item))
+        self.container.append((stack, item))
 
     def pop(self, stack):
         last_idx = self.get_last_idx_of(stack)
-        self.buffer.pop(last_idx)
+        self.container.pop(last_idx)
 
     def get_last_idx_of(self, stack):
-        for i, item in enumerate(reversed(self.buffer)):
+        for i, item in enumerate(reversed(self.container)):
             if item[0] is stack:
-                return len(self.buffer) - i - 1
+                return len(self.container) - i - 1
         raise StackIsEmpty
 
-    def peek(self):
-        pass
+    def peek(self, stack):
+        last_idx = self.get_last_idx_of(stack)
+        return self.container[last_idx][1]
 
-    def is_empty(self):
-        pass
+    def is_empty(self, stack):
+        try:
+            _ = self.get_last_idx_of(stack)
+        except StackIsEmpty:
+            return True
+        else:
+            return False
+
 
