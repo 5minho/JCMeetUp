@@ -1,3 +1,7 @@
+class StackIsEmpty(Exception):
+    def __str__(self):
+        return "아이템이 없습니다."
+
 
 class Stack:
     def __init__(self, container):
@@ -21,15 +25,19 @@ class StackContainer:
 
     def __init__(self):
         self.buffer = []
-        self.last_idx_table = {}
 
     def push(self, stack, item):
         self.buffer.append((stack, item))
-        self.last_idx_table[stack] = len(self.buffer)
 
     def pop(self, stack):
-        last_idx = self.last_idx_table[stack]
+        last_idx = self.get_last_idx_of(stack)
         self.buffer.pop(last_idx)
+
+    def get_last_idx_of(self, stack):
+        for i, item in enumerate(reversed(self.buffer)):
+            if item[0] is stack:
+                return len(self.buffer) - i - 1
+        raise StackIsEmpty
 
     def peek(self):
         pass
