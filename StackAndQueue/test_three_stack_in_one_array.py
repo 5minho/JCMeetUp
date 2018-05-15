@@ -55,6 +55,23 @@ class TestThreeStackInOneArray(unittest.TestCase):
         self.assertEqual(self.s3.peek(), 5)
         self.assertEqual(self.s1.peek(), 6)
 
+    def test_is_empty(self):
+        self.assertTrue(self.s1.is_empty())
+        self.assertTrue(self.s2.is_empty())
+        self.assertTrue(self.s3.is_empty())
+        self.s1.push(2)
+        self.assertFalse(self.s1.is_empty())
+        self.s2.push(2)
+        self.s2.push(4)
+        self.s3.push(6)
+        self.s2.pop()
+        self.s1.pop()
+        self.assertTrue(self.s1.is_empty())
+        self.s3.pop()
+        self.assertTrue(self.s3.is_empty())
+        self.s2.pop()
+        self.assertTrue(self.s2.is_empty())
+
     def push_items(self, test_values):
         for stack_and_item in test_values:
             stack = stack_and_item[0]
