@@ -6,8 +6,7 @@ class StackIsEmpty(Exception):
 class Stack:
     def __init__(self, container):
         self.container = container
-        self.last_idx_table = {}
-
+        
     def push(self, item):
         self.container.push(self, item)
 
