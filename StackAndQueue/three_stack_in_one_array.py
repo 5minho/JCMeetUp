@@ -6,7 +6,7 @@ class StackIsEmpty(Exception):
 class Stack:
     def __init__(self, container):
         self.container = container
-        
+
     def push(self, item):
         self.container.push(self, item)
 
@@ -36,7 +36,8 @@ class StackContainer:
         for i, item in enumerate(reversed(self.container)):
             if item[0] is stack:
                 return len(self.container) - i - 1
-        raise StackIsEmpty
+        else:
+            raise StackIsEmpty
 
     def peek(self, stack):
         last_idx = self.get_last_idx_of(stack)
@@ -49,5 +50,4 @@ class StackContainer:
             return True
         else:
             return False
-
 
