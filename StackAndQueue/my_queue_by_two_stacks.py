@@ -29,5 +29,3 @@ class MyQueue:
             return
         while self.newest_stack:
             self.oldest_stack.append(self.newest_stack.pop())
-
-
